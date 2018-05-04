@@ -1,0 +1,7 @@
+ngx.req.read_body()
+local data = ngx.req.get_body_data()
+local args = ngx.req.get_uri_args()
+local res = ngx.location.capture("/fe_components/jqwidget/teal/bh-scenes-1.2.min.css", {method = ngx.HTTP_GET, body=data, args=args})
+res.body = string.gsub(res.body, "max%-width%:1632px%;", "")
+-- ngx.say(res.body)
+ngx.say(ngx.is_subrequest)
